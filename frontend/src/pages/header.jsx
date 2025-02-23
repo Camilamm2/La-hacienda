@@ -7,8 +7,9 @@ import "../styles/header.css";
 
 const Header = () => {
   const navigate = useNavigate();
-  const [milkMatrix, setMilkMatrix] = useState([]);
 
+  const [numCows, setNumCows] = useState(0);
+  const [milkMatrix, setMilkMatrix] = useState([]);
   const [milkErrors, setMilkErrors] = useState([]);
   const [calculatedData, setCalculatedData] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
@@ -29,8 +30,8 @@ const Header = () => {
     }
 
     newMatrix[dayIndex][cowIndex] = numericValue;
-    setMilkMatrix(newMatrix);
-    setMilkErrors(newErrors);
+    setMilkMatrix([...newMatrix]);
+    setMilkErrors([...newErrors]);
     setErrorMessage("");
   };
 
